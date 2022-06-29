@@ -10,19 +10,7 @@ Alpine.data('phonebillWidget', function(){
 });
 });
 
-document.addEventListener('alpine:init', () => {
-    Alpine.data('ItemsQuantity', function(){
-        return{ itemList:'', itemsOut:'', itemsThresh:'', itemThreshList:'', thresh:0,
-items20(){ 
-  this.itemsOut = findItemsOver20(this.itemList);
-  
-},
-itemsOver(){
-this.itemsThresh = findItemsOver(this.itemThreshList, this.thresh);
-}
-}
-});
-});
+
 
 document.addEventListener('alpine:init', () => {
   Alpine.data('airtimeUsage', function(){

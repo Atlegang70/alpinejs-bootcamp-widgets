@@ -18,33 +18,20 @@
  
 }
 
-var findItemsOver20 = function(list){
-     
-    var array = [];
-    
-    for(var q = 0; q < list.length; q++){
-     
-      if(list[q].qty > 20){
-        array.push(list[q]);
-        }
-    }
-      console.log(array);
-      return array;
-      
-  }
-  var findItemsOver = function(list2, threshold){
-     var array2 = [];
-  
-    for(var x = 0; x < list2.length; x++){
-      if(list2[x].qty > threshold){
-        array2.push(list2[x]);
-         }
-       
-    }
-    return array2;
-  }
-    
-  
+var transportFee = function(shift){
+
+switch(shift){
+  case "morning":
+    return "R20";
+    break;
+  case "afternoon":
+    return "R10";
+    break;
+  default:
+    return "free";
+}
+}
+
   var enoughAirtime = function(usage, Camount){
     var smsCount = 0;
     var callCount = 0;

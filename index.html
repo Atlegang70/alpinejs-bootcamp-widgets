@@ -57,6 +57,7 @@ background-color: lightgreen;
   padding-right: 2%;
   border-radius: 1em;
   background-color: pink;
+  padding-bottom: 12%;
 }
 .wordgame{
   border: 1px solid;
@@ -78,28 +79,24 @@ background-color: lightgreen;
   <div class="container1">  
   <div class="phoneBill" x-data="phonebillWidget">   
     <h1>Total Phonebill</h1>
-<input type="text" placeholder="enter usage" x-model="call">
-<button @click="tot()">get totalPhoneBill</button> <br>
+  <p>  This Widget Calculates the <br> total bill for the given usage. </p>
+  <label for="phone">Enter Usage:</label><br>
+<input type="text" id="phone" x-model="call"> <br>
+<button @click="tot()">Check totalPhoneBill</button> <br>
   <span>Total phone bill is: <div x-text="total2"></div></span> 
 </div>
   
-<div class="items" x-data="ItemsQuantity"> 
-
-<h1>Expensive Items</h1>
-<h2>Items over R20</h2>
-<label for="over20">Enter Items:</label><br>
-<input type="text" id="over20" x-model="itemList">
-<button @click="items20()">Find Items over 20</button><br>
-Items over 20 are:<div x-text="itemsOut"></div>
-
-<h2>Items over</h2>
-<label for="list">Enter Items:</label><br>
-<input type="text"  id="list" x-model="itemThreshList" > <br>
-<label for="threshHold">Enter Threshold value:</label><br>
-<input type="number" id="threshHold" x-model="thresh">
-<button @click="itemsOver()">Find Items over Threshold </button><br>
-Items over Threshold are:<div x-text="itemsThresh"></div>
-
+<div class="items" x-data="{ Shift:'' , fee: 0, 
+shiftChange(){
+this.fee = transportFee(this.Shift);
+}
+}"> 
+<h1>Transport fee</h1>
+<p> this Widget find the right price based <br>on the shift you are working.</p>
+<label for="transport">Enter shift:</label><br>
+<input type="text" id="transport" x-model="Shift"> <br>
+<button @click="shiftChange()">Check Price</button> <br>
+The transport Price for this Shift is:<div x-text="fee"> </div>
 </div>
 </div>
 
@@ -108,8 +105,9 @@ Items over Threshold are:<div x-text="itemsThresh"></div>
 <div class="Airtime" x-data="airtimeUsage">
   <h1>Enough Airtime?</h1>
 
-  
-  <input type="text" placeholder="enter usage" x-model="airtimeActivity"> <br>
+  <p>this Widget calculates <br> if a user will have enough <br> airtime based on their <br>  projected usage.</p>
+  <label for="time">Enter Usage:</label><br>
+  <input type="text" id="time" x-model="airtimeActivity"> <br>
 
   <label for="AirtimeAva">Used Airtime:</label><br>
   <input type="number" id="AirtimeAva"  x-model="usedAirtime"> <br>
@@ -122,6 +120,7 @@ Airtime available is:<div x-text="airtimeLeft">
 <div class="wordgame" x-data="words">
 
   <h1>wordgame</h1>
+  <p>This is a wordCrush widget that <br> find word lenths,short word and <br> longest word on a given sentence.  </p>
 <label for="line">Enter Sentence:</label><br>
 <input type="text" id="line" x-model="lineSentence"> <br>
 <button @click="LongShortLength()">find wordlenths,short and longest word</button> <br>
