@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="Bootcampfuntions.js"></script>
+    <script src="Alpine data.js"></script>
+   <style>
+
+
+body{
+
+  background-color: lightskyblue;
+  border: 1px solid;
+  border-radius: 1em;
+ font-family:'Courier New', Courier, monospace
+}
+@media(min-width:960px) {
+.container1{
+display: flex;
+justify-content: center;
+}
+
+.container2{
+display: flex;
+justify-content: center;
+}
+}
+.phoneBill{
+
+border-color:black;
+border: 1px solid;
+margin-right: 13.6%;
+border-radius: 1em;
+background-color: lightgreen;
+
+}
+
+.Airtime{
+  
+  
+ 
+  border: 1px solid;
+  margin-right: 14.5%;
+  padding-right: 5%;
+  margin-top: 2%;
+  border-radius: 1em;
+  background-color: lightsalmon
+
+
+}
+.items{
+  border: 1px solid;
+  padding-right: 2%;
+  border-radius: 1em;
+  background-color: pink;
+}
+.wordgame{
+  border: 1px solid;
+  padding-right: 10%;
+  margin-top: 2%;
+  border-radius: 1em;
+  background-color: rgb(208, 144, 238);
+  
+  
+
+}
+
+   </style>
+
+
+</head >
+ <center > <h1>Widget Center</h1> </center>
+<body>
+  <div class="container1">  
+  <div class="phoneBill" x-data="phonebillWidget">   
+    <h1>Total Phonebill</h1>
+<input type="text" placeholder="enter usage" x-model="call">
+<button @click="tot()">get totalPhoneBill</button> <br>
+  <span>Total phone bill is: <div x-text="total2"></div></span> 
+</div>
+  
+<div class="items" x-data="ItemsQuantity"> 
+
+<h1>Expensive Items</h1>
+<h2>Items over R20</h2>
+<label for="over20">Enter Items:</label><br>
+<input type="text" id="over20" x-model="itemList">
+<button @click="items20()">Find Items over 20</button><br>
+Items over 20 are:<div x-text="itemsOut"></div>
+
+<h2>Items over</h2>
+<label for="list">Enter Items:</label><br>
+<input type="text"  id="list" x-model="itemThreshList" > <br>
+<label for="threshHold">Enter Threshold value:</label><br>
+<input type="number" id="threshHold" x-model="thresh">
+<button @click="itemsOver()">Find Items over Threshold </button><br>
+Items over Threshold are:<div x-text="itemsThresh"></div>
+
+</div>
+</div>
+
+<div class="container2">  
+
+<div class="Airtime" x-data="airtimeUsage">
+  <h1>Enough Airtime?</h1>
+
+  
+  <input type="text" placeholder="enter usage" x-model="airtimeActivity"> <br>
+
+  <label for="AirtimeAva">Used Airtime:</label><br>
+  <input type="number" id="AirtimeAva"  x-model="usedAirtime"> <br>
+<button @click="calculate()">Check available Airtime</button> <br>
+Airtime available is:<div x-text="airtimeLeft"> 
+</div> 
+</div>
+
+
+<div class="wordgame" x-data="words">
+
+  <h1>wordgame</h1>
+<label for="line">Enter Sentence:</label><br>
+<input type="text" id="line" x-model="lineSentence"> <br>
+<button @click="LongShortLength()">find wordlenths,short and longest word</button> <br>
+Longest word in the above sentence:<div x-text="longWord"></div> <br>
+Shortest word in the above sentence:<div x-text="shortWord"></div> <br>
+Sum of wordlenths in above sentence:<div x-text="lengthWord"></div> 
+
+
+</div>
+</div>
+   
+
+</body>
+</html>
